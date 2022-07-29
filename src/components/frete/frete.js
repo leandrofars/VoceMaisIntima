@@ -8,7 +8,7 @@ import "./frete.css"
 function Frete(){
 
     return <div className="frete">
-        <p><img src={truck} /><b> Frete Grátis</b> a partir de 300,00R$</p> 
+        <p><img src={truck} alt="frete truck" /><b> Frete Grátis</b> a partir de 300,00R$</p> 
         <InputMask mask="99999-999" placeholder="Digite seu Cep"  id="cep" name="cep" className="cep"/>
         <input type="button" value="Calcular" id="subCep" />
         <button className="maisProdutos">Comprar</button>

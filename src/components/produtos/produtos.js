@@ -35,7 +35,7 @@ const add = product => () => {
         <div className="produtos" >
           <img src={require(`../../${product.imagem}`)} alt="arrival"/>
           <div className="informações">
-            <a className="info" href="">{product.nome}<br/>
+            <a className="info" href={window.location.pathname}>{product.nome}<br/>
             <div>{product.preço}</div></a>
             <ul className='sizes'>
               {product.PP !== 0 && 

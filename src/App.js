@@ -74,6 +74,7 @@ function App() {
             <div className="formasDeContato">
                 <div className="zapzap">
                   <img src={whatsapp} alt="whatsaap"/>
+                  {/*eslint-disable-next-line*/}
                   <a href="tel:+55-48-99859-0767"></a>(48)9 9859-0767
                 </div>
                 <div className="instagram">

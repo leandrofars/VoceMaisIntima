@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from "react"
+import React, { useState, useContext } from "react"
 import { CartContext } from "../../contexts/cartContext"
 import  Frete from "../frete/frete"
 
@@ -31,7 +31,7 @@ console.log(cart.cart)
             Carrinho<img src={sacola} alt="sacola"/>
        </div>: 
         <div className="title">
-            <img src={close} className="closeCarrinho" onClick={()=>setShowcar(false)}></img>
+            <img src={close} className="closeCarrinho" onClick={()=>setShowcar(false)} alt="carSelect"></img>
             <p className="carrinho">Carrinho de compras</p>
             <div className="item">
                 {Object.keys(cart.cart).length>0 && 

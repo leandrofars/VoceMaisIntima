@@ -1,5 +1,6 @@
 import { createContext, useEffect, useState } from 'react'
 import { toast } from 'react-toastify';
+import cloneDeep from 'lodash/cloneDeep';
 
 export const CartContext = createContext()
 
@@ -18,14 +19,46 @@ export const CartProvider = ({children}) => {
         setCart(old => {
             let quantidade = 0;
             var newCart;
-            if (old[product._id] !== undefined){
-                var newCart = {...old}
-            toast.error("Já está no carrinho")
+            if (old[product._id+"-5"] !== undefined){
+                newCart={...old}
+                toast.success("Produto já adicionado ao carrinho")
+            }else if (old[product._id+"-4"] !== undefined){
+                let copy=cloneDeep(product)
+                copy["quantidade"]= quantidade+1
+                newCart={
+                    ...old,
+                    [copy._id+"-5"]:product
+                }
+                toast.success("Adicionado ao carrinho")
+            }else if (old[product._id+"-3"] !== undefined){
+                let copy=cloneDeep(product)
+                copy["quantidade"]= quantidade+1
+                newCart={
+                    ...old,
+                    [copy._id+"-4"]:product
+                }
+                toast.success("Adicionado ao carrinho")
+            }else if (old[product._id+"-2"] !== undefined){
+                let copy=cloneDeep(product)
+                copy["quantidade"]= quantidade+1
+                newCart={
+                    ...old,
+                    [copy._id+"-3"]:product
+                }
+                toast.success("Adicionado ao carrinho")
+            }else if (old[product._id+"-1"] !== undefined){
+                let copy=cloneDeep(product)
+                copy["quantidade"]= quantidade+1
+                newCart={
+                    ...old,
+                    [copy._id+"-2"]:product
+                }
+                toast.success("Adicionado ao carrinho")
             }else{
             product["quantidade"]= quantidade+1
-            var newCart = {
+            newCart = {
                 ...old,
-                [product._id]:product}
+                [product._id+"-1"]:product}
             toast.success("Adicionado ao carrinho")
             }
             //evita que o carrinho se perca ao dar reload na página
