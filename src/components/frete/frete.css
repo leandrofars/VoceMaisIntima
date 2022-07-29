@@ -1,0 +1,28 @@
+.frete{
+    font-size: 15px;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+#subCep{
+    background-color: white;
+    border: 1px solid rgb(100, 100, 100);
+    border-radius: 3px;
+    margin-left: 5px;
+}
+.cep:focus{
+    outline: none;
+}
+.cep{
+    margin-bottom: 20px;
+}
+.maisProdutos{
+    width: 250px;
+    height: 35px;
+    margin-bottom: 30px;
+    font-family: Montserrat;
+    border-radius: 5px;
+    border-style: none;
+    padding: 5px 25px 5px 25px;
+    background-color: rgb(255, 169, 166);
+    color: white;
+}
