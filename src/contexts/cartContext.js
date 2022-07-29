@@ -14,55 +14,51 @@ export const CartProvider = ({children}) => {
             setCart(JSON.parse(cartLocal))
         }
     },[])
+    const newProduct= (param,product) =>{
+        let quantidade = 0
+        let newCart;
+        let copy = cloneDeep(product)
+        copy["quantidade"]= quantidade+1
+        setCart(old=>{
+            newCart={
+                ...old,
+                [copy._id+param]:copy
+            }
+             //evita que o carrinho se perca ao dar reload na página
+            window.localStorage.setItem('cart',JSON.stringify(newCart))
+            toast.success("Adicionado ao carrinho")
+            return newCart
+        })
+    }
+
     //adiciona produto ao carrinho, verifica se ele já não existe e incrementa a quantidade.
     const addToCart = product => {
         setCart(old => {
             let quantidade = 0;
             var newCart;
-            if (old[product._id+"-5"] !== undefined){
-                newCart={...old}
-                toast.success("Produto já adicionado ao carrinho")
-            }else if (old[product._id+"-4"] !== undefined){
-                let copy=cloneDeep(product)
-                copy["quantidade"]= quantidade+1
-                newCart={
-                    ...old,
-                    [copy._id+"-5"]:copy
-                }
-                toast.success("Adicionado ao carrinho")
-            }else if (old[product._id+"-3"] !== undefined){
-                let copy=cloneDeep(product)
-                copy["quantidade"]= quantidade+1
-                newCart={
-                    ...old,
-                    [copy._id+"-4"]:copy
-                }
-                toast.success("Adicionado ao carrinho")
-            }else if (old[product._id+"-2"] !== undefined){
-                let copy=cloneDeep(product)
-                copy["quantidade"]= quantidade+1
-                newCart={
-                    ...old,
-                    [copy._id+"-3"]:copy
-                }
-                toast.success("Adicionado ao carrinho")
-            }else if (old[product._id+"-1"] !== undefined){
-                let copy=cloneDeep(product)
-                copy["quantidade"]= quantidade+1
-                newCart={
-                    ...old,
-                    [copy._id+"-2"]:copy
-                }
-                toast.success("Adicionado ao carrinho")
-            }else{
-            product["quantidade"]= quantidade+1
-            newCart = {
-                ...old,
-                [product._id+"-1"]:product}
-            toast.success("Adicionado ao carrinho")
+            switch(true) {
+                case old[product._id+"-5"]==undefined:
+                  newCart =newProduct("-5",product)
+                  break;
+                case old[product._id+"-4"]==undefined:
+                  newCart =newProduct("-4",product)
+                  break;
+                case old[product._id+"-3"]==undefined:
+                    newCart =newProduct("-3",product)
+                  break;
+                case old[product._id+"-2"]==undefined:
+                    newProduct("-2",product)
+                break;
+                case old[product._id]==undefined:
+                    newProduct("-1",product)
+                break;
+                default:
+                    product["quantidade"]= quantidade+1
+                    newCart = {
+                        ...old,
+                        [product._id]:product}
+                    toast.success("Adicionado ao carrinho")
             }
-            //evita que o carrinho se perca ao dar reload na página
-            window.localStorage.setItem('cart',JSON.stringify(newCart))
             return newCart
             
         })
