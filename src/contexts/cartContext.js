@@ -27,7 +27,7 @@ export const CartProvider = ({children}) => {
                 copy["quantidade"]= quantidade+1
                 newCart={
                     ...old,
-                    [copy._id+"-5"]:product
+                    [copy._id+"-5"]:copy
                 }
                 toast.success("Adicionado ao carrinho")
             }else if (old[product._id+"-3"] !== undefined){
@@ -35,7 +35,7 @@ export const CartProvider = ({children}) => {
                 copy["quantidade"]= quantidade+1
                 newCart={
                     ...old,
-                    [copy._id+"-4"]:product
+                    [copy._id+"-4"]:copy
                 }
                 toast.success("Adicionado ao carrinho")
             }else if (old[product._id+"-2"] !== undefined){
@@ -43,7 +43,7 @@ export const CartProvider = ({children}) => {
                 copy["quantidade"]= quantidade+1
                 newCart={
                     ...old,
-                    [copy._id+"-3"]:product
+                    [copy._id+"-3"]:copy
                 }
                 toast.success("Adicionado ao carrinho")
             }else if (old[product._id+"-1"] !== undefined){
@@ -51,7 +51,7 @@ export const CartProvider = ({children}) => {
                 copy["quantidade"]= quantidade+1
                 newCart={
                     ...old,
-                    [copy._id+"-2"]:product
+                    [copy._id+"-2"]:copy
                 }
                 toast.success("Adicionado ao carrinho")
             }else{
