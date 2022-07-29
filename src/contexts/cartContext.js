@@ -86,10 +86,13 @@ export const CartProvider = ({children}) => {
 
     const lessQuantity = id =>{
         setCart(old=>{
-            old[id].quantidade--
-            var newCart= {...old}
-            window.localStorage.setItem('cart',JSON.stringify(newCart))
-            return newCart
+            if(old[id].quantidade>1){
+                old[id].quantidade--
+                var newCart= {...old}
+                window.localStorage.setItem('cart',JSON.stringify(newCart))
+                return newCart
+            }else{
+            return old}
         })
 
     }

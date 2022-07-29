@@ -43,7 +43,7 @@ console.log(cart.cart)
                         <p className="valor">{element[1].preço}</p>
                             <div className="quantidade">
                             <img src={dash} className="less" alt="menos" onClick={less(element[0])}/>
-                            <input className="quantity" type="number" min="" max={element[1].estoque} onChange={()=>console.log('change')} value={element[1].quantidade}/>
+                            <input className="quantity" type="number" onChange={()=>console.log('change')} value={element[1].quantidade}/>
                             <img src={plus} className="more" alt="mais" onClick={more(element[0])}/>
                             </div>
                         </div>
