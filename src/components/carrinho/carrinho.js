@@ -47,7 +47,7 @@ export default function Carrinho() {
                                     <p className="item-title">{element[1].nome}</p>
                                     <p className="valor">{element[1].preço}</p>
                                     <div className="select">
-                                    <select className="sizeSelect" onChange={e=>handleSizeChange(element[0],e)} value={element[1].choosenSize}>
+                                    <select className="sizeSelect" onChange={e=>handleSizeChange(element[0],e)} value={element[1].choosenSize==null?"" : element[1].choosenSize}>
                                         <option className='sizeIcon' style={{display:"none"}}></option>
                                         {element[1].PP !== 0 &&
                                             <option className='sizeIcon'>PP</option>}
