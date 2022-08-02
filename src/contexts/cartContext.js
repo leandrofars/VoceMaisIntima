@@ -15,11 +15,11 @@ export const CartProvider = ({children}) => {
         }
     },[])
     const newProduct= (param,product) =>{
-        let quantidade = 0
+        let quantidade = null
         let choosenSize = null
         let newCart;
         let copy = cloneDeep(product)
-        copy["quantidade"]= quantidade+1
+        copy["quantidade"]= quantidade
         copy["choosenSize"]=choosenSize
         setCart(old=>{
             newCart={
@@ -36,7 +36,7 @@ export const CartProvider = ({children}) => {
     //adiciona produto ao carrinho, verifica se ele já não existe e incrementa a quantidade.
     const addToCart = product => {
         setCart(old => {
-            let quantidade = 0;
+            let quantidade = null;
             let choosenSize = null
             var newCart;
             switch(true) {
@@ -56,11 +56,12 @@ export const CartProvider = ({children}) => {
                     newProduct("-1",product)
                 break;
                 default:
-                    product["quantidade"]= quantidade+1
+                    product["quantidade"]= quantidade
                     product["choosenSize"]= choosenSize
                     newCart = {
                         ...old,
                         [product._id]:product}
+                    window.localStorage.setItem('cart',JSON.stringify(newCart))
                     toast.success("Adicionado ao carrinho")
             }
             return newCart
@@ -81,11 +82,15 @@ export const CartProvider = ({children}) => {
 
     const moreQuantity = id => {
         setCart(old=>{
-            //colocar maximo somando os tamanhos
-            old[id].quantidade++
-            var newCart= {...old}
-            window.localStorage.setItem('cart',JSON.stringify(newCart))
-            return newCart
+            let sizeSelected = old[id].choosenSize
+            if(sizeSelected !==null && old[id][sizeSelected] > old[id].quantidade ){
+                old[id].quantidade++
+                var newCart= {...old}
+                window.localStorage.setItem('cart',JSON.stringify(newCart))
+                return newCart
+            }else{
+                return old
+            }
         })
     }
 
@@ -102,10 +107,11 @@ export const CartProvider = ({children}) => {
     }
 
     const selectSize = (id, selectedSize) => {
-        console.log(id,selectedSize)
         setCart(old=>{
+            old[id].quantidade=1
             old[id].choosenSize=selectedSize
             var newCart = {...old}
+            window.localStorage.setItem('cart',JSON.stringify(newCart))
             return newCart
         })
     }
