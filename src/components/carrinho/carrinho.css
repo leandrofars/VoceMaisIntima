@@ -45,8 +45,8 @@
 }
 .img-carrinho{
     margin-left:20px;
-    width: 85px;
-    height:100px;
+    width: 100px;
+    height:115px;
 }
 .item-title{
     margin-left: 8px;
@@ -95,3 +95,21 @@ input[type="number"] {
 input[type=number]:focus{
     outline: none;
 }
+.select{
+    margin-top: 10px;
+    margin-left:10px;
+}
+.sizeSelect{
+    width: 40px;
+    font-size: 12px;
+    cursor: pointer;
+    text-align: center;
+    border-color: black;
+    border-width: 0.0px;
+    border-radius: 5px;
+    background-color: #ffe0df;
+}
+
+
+
+

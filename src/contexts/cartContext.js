@@ -16,9 +16,11 @@ export const CartProvider = ({children}) => {
     },[])
     const newProduct= (param,product) =>{
         let quantidade = 0
+        let choosenSize = null
         let newCart;
         let copy = cloneDeep(product)
         copy["quantidade"]= quantidade+1
+        copy["choosenSize"]=choosenSize
         setCart(old=>{
             newCart={
                 ...old,
@@ -35,6 +37,7 @@ export const CartProvider = ({children}) => {
     const addToCart = product => {
         setCart(old => {
             let quantidade = 0;
+            let choosenSize = null
             var newCart;
             switch(true) {
                 case old[product._id+"-5"]==undefined:
@@ -54,6 +57,7 @@ export const CartProvider = ({children}) => {
                 break;
                 default:
                     product["quantidade"]= quantidade+1
+                    product["choosenSize"]= choosenSize
                     newCart = {
                         ...old,
                         [product._id]:product}
@@ -77,6 +81,7 @@ export const CartProvider = ({children}) => {
 
     const moreQuantity = id => {
         setCart(old=>{
+            //colocar maximo somando os tamanhos
             old[id].quantidade++
             var newCart= {...old}
             window.localStorage.setItem('cart',JSON.stringify(newCart))
@@ -94,11 +99,19 @@ export const CartProvider = ({children}) => {
             }else{
             return old}
         })
+    }
 
+    const selectSize = (id, selectedSize) => {
+        console.log(id,selectedSize)
+        setCart(old=>{
+            old[id].choosenSize=selectedSize
+            var newCart = {...old}
+            return newCart
+        })
     }
 
     return (
-        <CartContext.Provider value={{cart, addToCart, removeFromCart, moreQuantity,lessQuantity}}>
+        <CartContext.Provider value={{cart, addToCart, removeFromCart, moreQuantity,lessQuantity, selectSize}}>
         {children}
         </CartContext.Provider>
     )
