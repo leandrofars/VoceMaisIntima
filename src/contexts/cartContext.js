@@ -40,19 +40,19 @@ export const CartProvider = ({children}) => {
             let choosenSize = null
             var newCart;
             switch(true) {
-                case old[product._id+"-5"]==undefined:
+                case old[product._id+"-5"]===undefined:
                   newCart =newProduct("-5",product)
                   break;
-                case old[product._id+"-4"]==undefined:
+                case old[product._id+"-4"]===undefined:
                   newCart =newProduct("-4",product)
                   break;
-                case old[product._id+"-3"]==undefined:
+                case old[product._id+"-3"]===undefined:
                     newCart =newProduct("-3",product)
                   break;
-                case old[product._id+"-2"]==undefined:
+                case old[product._id+"-2"]===undefined:
                     newProduct("-2",product)
                 break;
-                case old[product._id]==undefined:
+                case old[product._id]===undefined:
                     newProduct("-1",product)
                 break;
                 default:

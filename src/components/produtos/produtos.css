@@ -25,7 +25,6 @@
 }
 .addSacola{
     display: flex;
-    justify-content:right;
 }
 .addSacola img:hover{
     width: 25px;
@@ -34,8 +33,10 @@
 .info{
     color: black;
     font-size:16px;
+    margin-bottom:8px;
     text-decoration: none;
     font-family: Montserrat;
+    cursor: pointer;
 }
 .info:hover{
     color: black;
@@ -43,7 +44,6 @@
 .sizes{
     display: flex;
     list-style: none;
-    justify-content: left;
 }
 .sizeIcon{
     border-radius: 50%;
@@ -52,12 +52,14 @@
     height: 20px;
     justify-content: center;
     font-size: small;
-    margin-top: 8px;
     margin-left: 5px;
-    cursor: pointer;
+    cursor:default
 }
 .sizeIcon:hover{
     background-color: white;
+}
+.clickToMaximize{
+    cursor: pointer;
 }
 
 
