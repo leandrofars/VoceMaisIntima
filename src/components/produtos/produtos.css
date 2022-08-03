@@ -61,6 +61,49 @@
 .clickToMaximize{
     cursor: pointer;
 }
+.product-max-container{
+    position:fixed;
+    padding:0;
+    margin:0;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    background:rgba(2, 2, 2, 0.5);
+}
+.container-max{
+    position: relative;
+    margin: auto;
+    display: block;
+    margin-top: 50px;
+    width: 900px;
+    height:700px;
+    background-color: #fdf4f4;
+    border-radius: 10px;
+}
+.image{ 
+    display: flex;
+    justify-content: center;
+    height: 100%;
+}
+.arrow{
+    cursor: pointer;
+    width: 50px;
+}
+.prodImage{
+    width: 80%;
+    height: 89%;
+}
+.close{
+    display: flex;
+    justify-content: right;
+    padding: 10px;
+    cursor: pointer;
+}
+.closeImg{
+    background-color: rgba(128, 128, 128, 0.534);
+    border-radius: 20px;
+}
 
 
 @media(max-width:600px){

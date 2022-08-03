@@ -1,19 +1,24 @@
 import React, {useState, useEffect, useContext} from 'react';
-import axios from 'axios'
+import axios from 'axios';
 import { CartContext } from '../../contexts/cartContext';
 
-import sacola from '../../imgs/sacola.svg'
-import './produtos.css'
+import sacola from '../../imgs/sacola.svg';
+import './produtos.css';
+import rightArrow from '../../imgs/chevron-right.svg'
+import leftArrow from '../../imgs/chevron-left.svg'
+import close from '../../imgs/close.svg'
 
-
-export default function Produtos(filter, /*setFilter*/) {
+export default function Produtos(filter) {
   
-const [estoque, setEstoque] = useState([])
-const cart = useContext(CartContext)
+  const [estoque, setEstoque] = useState([])
+  const [displayBig, setDisplayBig] = useState(false)
+  const [productBig, setProductBig] =useState(null)
 
-const add = product => () => {
-  cart.addToCart(product)
-}
+  const cart = useContext(CartContext)
+
+  const add = product => () => {
+    cart.addToCart(product)
+  }
 
   useEffect(()=>{
     let url = "http://localhost:5000"+filter.filter;
@@ -32,7 +37,10 @@ const add = product => () => {
       {
         estoque.map(product=>
         <div className="produtos"  key={product._id}>
-        <img src={require(`../../${product.imagem}`)} alt="arrival"onClick={()=>console.log("clicou")/*setFilter(product._id)*/}/>
+        <img src={require(`../../${product.imagem}`)} alt="arrival" onClick={()=>{
+          setDisplayBig(!displayBig); 
+          setProductBig(product.imagens)}
+          }/>
           <div className="informações">
             <p className="info">{product.nome}<br/>
             {product.preço}</p>
@@ -52,6 +60,19 @@ const add = product => () => {
           </div>
         </div>)
       }
+      {displayBig &&
+      <div className="product-max-container">
+        <div className='container-max'>
+          <div className='close'>
+          <img src={close} alt='close' className='closeImg' onClick={()=>{setDisplayBig(!displayBig)}}/>
+          </div>
+          <div className='image'>
+            <img src={leftArrow} alt='right-arrow' className='arrow'/>
+            <img src={require(`../../${productBig[0]}`)} alt="product maximized" className='prodImage'/>
+            <img src={rightArrow} alt='right-arrow' className='arrow'/>
+          </div>
+        </div>
+      </div>}
     </div>
   </div>
 }
