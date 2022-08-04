@@ -8,6 +8,9 @@
     border: 1px solid rgb(100, 100, 100);
     border-radius: 3px;
     margin-left: 5px;
+    width: 80px;
+    height: 30px;
+    cursor: default;
 }
 .cep:focus{
     outline: none;
@@ -25,4 +28,9 @@
     padding: 5px 25px 5px 25px;
     background-color: rgb(255, 169, 166);
     color: white;
+}
+.smallAdivise{
+    margin-top:-20px;
+    font-size: 12px;
+    color: red;
 }

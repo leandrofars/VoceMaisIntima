@@ -67,6 +67,7 @@ export default function Produtos(filter) {
           <img src={close} alt='close' className='closeImg' onClick={()=>{setDisplayBig(!displayBig)}}/>
           </div>
           <div className='image'>
+            //desenvolver forma de ler todas as fotos e aparecer ou não a arrow
             <img src={leftArrow} alt='right-arrow' className='arrow'/>
             <img src={require(`../../${productBig[0]}`)} alt="product maximized" className='prodImage'/>
             <img src={rightArrow} alt='right-arrow' className='arrow'/>
