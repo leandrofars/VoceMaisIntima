@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 
+import Footer from './components/footer/footer'
 import Produtos from './components/produtos/produtos';
 import Filterbar from './components/filterbar/filterbar';
 import Carrinho from './components/carrinho/carrinho';
@@ -14,10 +15,6 @@ import logo from "./imgs/logo.png"
 import menu from "./imgs/menu.svg"
 import close from "./imgs/close.svg"
 import slogan from "./imgs/slogan.gif"
-import whatsapp from "./imgs/zapIcon.svg"
-import instagram from "./imgs/instagram.svg"
-import email from "./imgs/email.svg"
-
 
 function App() {
 
@@ -66,28 +63,7 @@ function App() {
         ></Produtos>
     </main>
     </CartProvider>
-    <footer>
-        <div className="entrarEmContato">
-            <div className="contato">
-                Contatos:
-            </div>
-            <div className="formasDeContato">
-                <div className="zapzap">
-                  <img src={whatsapp} alt="whatsaap"/>
-                  {/*eslint-disable-next-line*/}
-                  <a href="tel:+55-48-99859-0767"></a>(48)9 9859-0767
-                </div>
-                <div className="instagram">
-                   <img src={instagram} alt="ícone instagram"/>
-                   @vocemaisintima
-                </div>
-                <div className="email">
-                    <img src={email} alt="email"/>
-                    vocemaisintimaonline@gmail.com
-                </div>
-            </div>
-        </div>
-    </footer>
+    <Footer/>
   </div> 
   );
 }
