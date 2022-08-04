@@ -13,12 +13,14 @@ export default function Produtos(filter) {
   const [estoque, setEstoque] = useState([])
   const [displayBig, setDisplayBig] = useState(false)
   const [productBig, setProductBig] =useState(null)
+  const [actualImg, setActualImg] =useState(null)
 
   const cart = useContext(CartContext)
 
   const add = product => () => {
     cart.addToCart(product)
   }
+
 
   useEffect(()=>{
     let url = "http://localhost:5000"+filter.filter;
@@ -39,7 +41,8 @@ export default function Produtos(filter) {
         <div className="produtos"  key={product._id}>
         <img src={require(`../../${product.imagem}`)} alt="arrival" onClick={()=>{
           setDisplayBig(!displayBig); 
-          setProductBig(product.imagens)}
+          setProductBig(product.imagens);
+          setActualImg(0)}
           }/>
           <div className="informações">
             <p className="info">{product.nome}<br/>
@@ -67,10 +70,13 @@ export default function Produtos(filter) {
           <img src={close} alt='close' className='closeImg' onClick={()=>{setDisplayBig(!displayBig)}}/>
           </div>
           <div className='image'>
-            //desenvolver forma de ler todas as fotos e aparecer ou não a arrow
-            <img src={leftArrow} alt='right-arrow' className='arrow'/>
-            <img src={require(`../../${productBig[0]}`)} alt="product maximized" className='prodImage'/>
-            <img src={rightArrow} alt='right-arrow' className='arrow'/>
+            <div className='arrow'>
+              {actualImg!=0 && <img src={leftArrow} alt='left-arrow' className='arrow' onClick={()=>setActualImg(old=>{return old-1})}/>}
+            </div>
+            <img src={require(`../../${productBig[actualImg]}`)} alt="product maximized" className='prodImage'/>
+            <div className='arrow'>
+              {actualImg===productBig.length-1 ? null:<img src={rightArrow} alt='right-arrow' className='arrow' onClick={()=>setActualImg(old=>{return old+1})}/>}
+            </div>
           </div>
         </div>
       </div>}

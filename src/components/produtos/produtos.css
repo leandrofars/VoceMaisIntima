@@ -89,6 +89,7 @@
 .arrow{
     cursor: pointer;
     width: 50px;
+    display: flex;
 }
 .prodImage{
     width: 80%;
