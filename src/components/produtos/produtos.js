@@ -71,7 +71,7 @@ export default function Produtos(filter) {
           </div>
           <div className='image'>
             <div className='arrow'>
-              {actualImg!=0 && <img src={leftArrow} alt='left-arrow' className='arrow' onClick={()=>setActualImg(old=>{return old-1})}/>}
+              {actualImg!==0 && <img src={leftArrow} alt='left-arrow' className='arrow' onClick={()=>setActualImg(old=>{return old-1})}/>}
             </div>
             <img src={require(`../../${productBig[actualImg]}`)} alt="product maximized" className='prodImage'/>
             <div className='arrow'>

@@ -7,8 +7,10 @@
     "@testing-library/react": "^13.2.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^0.27.2",
+    "bcrypt": "^5.0.1",
     "crypto-browserify": "^3.12.0",
     "dotenv": "^16.0.1",
+    "jsonwebtoken": "^8.5.1",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-input-mask": "^2.0.4",
@@ -21,7 +23,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "runall": "npm start & cd backend && node server.js"
   },
   "eslintConfig": {
     "extends": [
