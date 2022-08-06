@@ -1,18 +1,10 @@
 const express = require("express");
- 
-// Routes is an instance of the express router.
-// We use it to define our routes.
-// The router will be added as a middleware and will take control of requests starting with path /record.
 const Routes = express.Router();
- 
-// This will help us connect to the database
 const dbo = require("../db/conn");
- 
-// This help convert the id from string to ObjectId for the _id.
+const bcrypt=require("bcrypt")
+const jwt = require("jsonwebtoken");
 const ObjectId = require("mongodb").ObjectId;
  
- 
-// This section will help you get a list of all the Produtos.
 Routes.route("/").get(function (req, res) {
  let db_connect = dbo.getDb("vocemaisintima");
  db_connect
@@ -78,6 +70,96 @@ Routes.route("/calcinhas").get(function (req, res) {
       res.json(result);
     });
  });
+//----------------------sigin e signup-------------------------
+ Routes.route("/signup").post( async (req, res) => {
+  const { name, email, password, confirmpassword } = req.body;
+  if (!name) {
+    return res.status(422).json({ msg: "O nome é obrigatório!" });
+  }
+  if (!email) {
+    return res.status(422).json({ msg: "O email é obrigatório!" });
+  }
+  if (!password) {
+    return res.status(422).json({ msg: "A senha é obrigatória!" });
+  }
+  if (password != confirmpassword) {
+    return res
+      .status(422)
+      .json({ msg: "A senha e a confirmação precisam ser iguais!" });
+  }
+  let db_connect = dbo.getDb("vocemaisintima");
+  const userExists = await db_connect.collection("Users").findOne({ email: email });
+  if (userExists){
+  console.log("usuário já existe")
+  return res.status(422).json({ msg: "Por favor, utilize outro e-mail!" });
+  }else{
+    const salt = await bcrypt.genSalt(12);
+    const passwordHash = await bcrypt.hash(password, salt);
+    const user ={
+      name:name,
+      email:email,
+      password:passwordHash
+    }
+    await db_connect.collection("Users").insertOne(user)
+    console.log("usuário criado com sucesso")
+    return res.status(201).json({ msg: "Usuário criado com sucesso" });
+  }
+});
+
+Routes.route("/signin").post( async (req, res) => {
+  const { email, password } = req.body;
+  if (!email) {
+    return res.status(422).json({ msg: "O email é obrigatório!" });
+  }
+  if (!password) {
+    return res.status(422).json({ msg: "A senha é obrigatória!" });
+  }
+  let db_connect = dbo.getDb("vocemaisintima");
+  const user = await db_connect.collection("Users").findOne({ email: email });
+  if (!user) {
+    return res.status(404).json({ msg: "Usuário não encontrado!" });
+  }
+  const checkPassword = await bcrypt.compare(password, user.password);
+  if (!checkPassword) {
+    return res.status(422).json({ msg: "Senha inválida" });
+  }
+  try {
+    const secret = process.env.SECRET;
+    const token = jwt.sign(
+      {
+        id: user._id,
+      },
+      secret
+    );
+    res.status(200).json({ msg: "Autenticação realizada com sucesso!", token });
+  } catch (error) {
+    res.status(500).json({ msg: error });
+  }
+});
+
+Routes.route("/user/:id").get(checkToken, async (req, res) =>{
+  const id = req.params.id;
+  let db_connect = dbo.getDb("vocemaisintima");
+  const user = await db_connect.collection("Users").find({_id: ObjectId( id )});
+  if (!user) {
+    return res.status(404).json({ msg: "Usuário não encontrado!" });
+  }
+  res.status(200).json({ user });
+});
+
+function checkToken(req, res, next) {
+  const authHeader = req.headers["authorization"];
+  const token = authHeader && authHeader.split(" ")[1];
+  if (!token) return res.status(401).json({ msg: "Acesso negado!" });
+  try {
+    const secret = process.env.SECRET;
+    jwt.verify(token, secret);
+    next();
+  } catch (err) {
+    res.status(400).json({ msg: "O Token é inválido!" });
+  }
+}
+//----------------------sigin e signup-------------------------
  
 // This section will help you get a single record by id
 /*Routes.route("/record/:id").get(function (req, res) {
