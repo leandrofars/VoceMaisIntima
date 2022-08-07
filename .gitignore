@@ -13,4 +13,4 @@ yarn-error.log*
 /.changelog
 .npm/
 .env
-config.env
+backend/config.env
