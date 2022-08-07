@@ -1,13 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { BrowserRouter, Route, Routes} from "react-router-dom";
+import Login from './components/login/login';
 import App from './App';
-import { BrowserRouter } from "react-router-dom";
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <BrowserRouter>
-      <App />
+    <Routes>
+      <Route exact path='/' element={<App />}>
+      </Route>
+        <Route path='login' element={<Login />}>
+        </Route>
+    </Routes>
     </BrowserRouter>
 );
 
