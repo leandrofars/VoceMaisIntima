@@ -7,12 +7,12 @@ import "./login.css"
 export default function Login (){
 
     const handleLogin = () => {
-        
+
     }
     return(
         <div className="login-page">
             <div className="login-wrap">
-                <div className="logo">
+                <div className="logo-login">
                     <img src={logo} alt="logo"/>
                 </div>
                 <div className="login-container">
