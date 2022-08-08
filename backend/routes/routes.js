@@ -124,7 +124,7 @@ Routes.route("/signin").post( async (req, res) => {
     return res.status(422).json({ msg: "Senha inválida" });
   }
   try {
-    const secret = process.env.SECRET;
+    const secret = process.env.ACCESS_TOKEN_SECRET;
     const token = jwt.sign(
       {
         id: user._id,
@@ -137,7 +137,7 @@ Routes.route("/signin").post( async (req, res) => {
   }
 });
 
-Routes.route("/user/:id").get(checkToken, async (req, res) =>{
+Routes.route("/admin").get(checkToken, async (req, res) =>{
   const id = req.params.id;
   let db_connect = dbo.getDb("vocemaisintima");
   const user = await db_connect.collection("Users").find({_id: ObjectId( id )});
@@ -152,14 +152,14 @@ function checkToken(req, res, next) {
   const token = authHeader && authHeader.split(" ")[1];
   if (!token) return res.status(401).json({ msg: "Acesso negado!" });
   try {
-    const secret = process.env.SECRET;
+    const secret = process.env.ACCESS_TOKEN_SECRET;
     jwt.verify(token, secret);
     next();
   } catch (err) {
     res.status(400).json({ msg: "O Token é inválido!" });
   }
 }
-//----------------------sigin e signup-------------------------
+//-------------------------------------------------------
  
 // This section will help you get a single record by id
 /*Routes.route("/record/:id").get(function (req, res) {
