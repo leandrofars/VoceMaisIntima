@@ -95,12 +95,6 @@
     width: 80%;
     height: 89%;
 }
-.close{
-    display: flex;
-    justify-content: right;
-    padding: 10px;
-    cursor: pointer;
-}
 .closeImg{
     background-color: rgba(128, 128, 128, 0.534);
     border-radius: 20px;
@@ -117,5 +111,6 @@
         width: 170px;
         height: 250px;
         background-color:white;
-        }
+    }
+       
 }

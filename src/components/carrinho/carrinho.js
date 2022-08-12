@@ -33,7 +33,7 @@ export default function Carrinho() {
     return (<div className="menu">
         {!showCar ?
             <div className="sacola" onClick={() => setShowcar(true)}>
-                Carrinho<img src={sacola} alt="sacola" />
+            <span>Carrinho</span><img src={sacola} className="cart-img" alt="sacola" />
             </div> :
             <div className="title">
                 <img src={close} className="closeCarrinho" onClick={() => setShowcar(false)} alt="carSelect"></img>

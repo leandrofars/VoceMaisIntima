@@ -110,6 +110,22 @@ input[type=number]:focus{
     border-radius: 5px;
     background-color: #ffe0df;
 }
+@media(max-width:600px){
+    .cart-img{
+        position:absolute;
+        display: block !important;
+        top:10px;
+        right: 10px;
+    }
+    .sacola span{
+        display: none;
+    }
+    .sacola{
+        position: absolute;
+        top: 5px;
+        right: 5px;
+    }
+}
 
 
 

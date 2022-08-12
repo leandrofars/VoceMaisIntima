@@ -1,5 +1,3 @@
-
-
 body{
     padding: 5px 5px 0px 5px;
     font-family: Montserrat;
@@ -78,9 +76,6 @@ main{
     width: 25px;
     height: 25px;
 }
-.menuMobile{
-display: none;
-}
 /*estilização para quando cliente for ver o carrinho de compras*/
 
 .sacola.active p{
@@ -125,62 +120,9 @@ display: none;
     .formasDeContato{
         margin-left: 30px;
     }
-    
-
-
-    /*Menu para celular*/
-
-    .menu{
-        display:block;
-        position:absolute;
-        width:85%;
-        top: 55px;
-        left:0px;
-        background: white;
-        height: 0px;
-        transition:.6s;
-        visibility: hidden;
-        overflow-y: hidden;
-        z-index:100000;
-    }
-    nav.active .menuMobile{
-        width:85%;
-        background-color: white;
-        transition-duration:.2s;
-        visibility: visible;
-        z-index:100000;
-    }
-    nav.active .menu{
-        position: fixed;
-        height:100vh;
-        overflow-y: auto;
-        visibility: visible;
-    }
-    .menu a{
-        display: block;
-        padding:1rem 0;
-        margin: 0 1rem;
-        border-bottom:2px solid #ffe0df;
-        border-radius: 0px;
-    }
-    .menuMobile {
-        display:block;
-        position: fixed;
-        width: 85%;
-        top:0px;
-        left: 0px;
-        padding: 1rem 1rem;
-        cursor:pointer;
-        visibility: visible;
-    }
-    .menuMobile .close{
-        display: none;
-    }
-    .menuMobile.active .close{
-        display: block;
-    }
-    .menuMobile.active .open{
-        display: none;
-    }
-
+    .logo{
+        width: 200px;
+        height: 130px;
+        margin-bottom: 15px;
+    }    
 }

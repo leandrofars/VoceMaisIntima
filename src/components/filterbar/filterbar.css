@@ -20,3 +20,9 @@
     background-color: #ffe0df;
     border-radius: 5px;
 }
+@media(max-width:600px){
+    .filters{
+        display: none;
+    }
+       
+}

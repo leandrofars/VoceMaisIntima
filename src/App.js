@@ -5,6 +5,7 @@ import Footer from './components/footer/footer'
 import Produtos from './components/produtos/produtos';
 import Filterbar from './components/filterbar/filterbar';
 import Carrinho from './components/carrinho/carrinho';
+import MenuMobile from './components/menuMobile/menuMobile'
 import { CartProvider } from './contexts/cartContext';
 import { ToastContainer, Zoom } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -12,8 +13,6 @@ import 'react-toastify/dist/ReactToastify.css';
 import "./App.css"
 
 import logo from "./imgs/logo.png"
-import menu from "./imgs/menu.svg"
-import close from "./imgs/close.svg"
 import slogan from "./imgs/slogan.gif"
 
 function App() {
@@ -42,13 +41,8 @@ function App() {
         </div>
     </header>
     <CartProvider>
-    <nav>
-        <div className="menuMobile">
-            <img src={menu} className="open" alt="menu"/>
-            <img src={close}className="close" alt="close"/>
-        </div>
+    <MenuMobile setFilter={setFilter}/>
     <Carrinho />    
-    </nav>
     <main>
         <div className="destaque">
             <div className="imagens">
