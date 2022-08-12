@@ -14,6 +14,7 @@ import "./App.css"
 
 import logo from "./imgs/logo.png"
 import slogan from "./imgs/slogan.gif"
+import mobileLogo from "./imgs/logoMobile.png"
 
 function App() {
 
@@ -37,7 +38,8 @@ function App() {
         pauseOnHover={false}/>
     <header>
         <div className="logo">
-            <img src={logo} alt="logo" onClick={homepage}/>
+            <img src={logo} alt="logo" className="logoImgPC" onClick={homepage}/>
+            <img src={mobileLogo} alt="logo" className="logoImgMobile" onClick={homepage}/>
         </div>
     </header>
     <CartProvider>
