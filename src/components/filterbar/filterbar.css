@@ -1,13 +1,13 @@
 .filterbar {
+    margin-top: 10px;
     display: flex;
     list-style: none;
-    background-color: #fac8c7;
     justify-content: center;
 }
 .filters{
     color: black;
     text-decoration: none;
-    background-color: #f7a09e;
+    background-color: #f7caca;
     border-radius: 5px;
     cursor: pointer;
     font-size: 20px;

@@ -70,6 +70,17 @@ Routes.route("/calcinhas").get(function (req, res) {
       res.json(result);
     });
  });
+
+ Routes.route("/categorias").get(function (req, res) {
+  let db_connect = dbo.getDb("vocemaisintima");
+  db_connect
+    .collection("Categorias")
+    .find({})
+    .toArray(function (err, result) {
+      if (err) throw err;
+      res.json(result);
+    });
+ });
 //----------------------sigin e signup-------------------------
  Routes.route("/signup").post( async (req, res) => {
   const { name, email, password, confirmpassword } = req.body;

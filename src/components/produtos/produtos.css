@@ -5,9 +5,9 @@
     margin-bottom: 40px;
 }
 .produtos{
-    padding: 20px 20px 20px 20px;
+    padding: 0px 0px 20px 0px;
     margin: 20px 25px 0px 25px;
-    width: 290px;
+    width: 260px;
     height: 390px;
 }
 .produtos:hover{
@@ -20,15 +20,16 @@
     cursor: pointer;
 }
 .addSacola img{
-    width:20px;
-    height:20px;
+    width:30px!important;
+    height:30px;
 }
 .addSacola{
     display: flex;
+    margin-right: 10px;
 }
 .addSacola img:hover{
-    width: 25px;
-    height: 25px;
+    width: 35px;
+    height: 35px;
 }
 .info{
     color: black;
@@ -111,6 +112,22 @@
         width: 170px;
         height: 250px;
         background-color:white;
+    }
+    .sizes{
+        display: none;
+    }
+    .addSacola{
+        margin-right: 0px;
+    }
+    .addSacola img,
+    .addSacola img:hover{
+        width: 15px;
+        height: 15px !important;
+        margin-top: 20px;
+    }
+    .info{
+        color: black;
+        font-size:12px;
     }
        
 }

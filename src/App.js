@@ -13,7 +13,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import "./App.css"
 
 import logo from "./imgs/logo.png"
-import slogan from "./imgs/slogan.gif"
+//import slogan from "./imgs/slogan.gif"
 import mobileLogo from "./imgs/logoMobile.png"
 
 function App() {
@@ -46,11 +46,11 @@ function App() {
     <MenuMobile setFilter={setFilter}/>
     <Carrinho />    
     <main>
-        <div className="destaque">
+        {/*<div className="destaque">
             <div className="imagens">
                 <img src={slogan} alt="fotoChique"/>
             </div>
-        </div>
+  </div>*/}
         <Filterbar
         setFilter={setFilter}
         ></Filterbar>

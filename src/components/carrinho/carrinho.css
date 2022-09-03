@@ -121,7 +121,7 @@ input[type=number]:focus{
         display: none;
     }
     .sacola{
-        position: absolute;
+        position: fixed;
         top: 5px;
         right: 5px;
     }
