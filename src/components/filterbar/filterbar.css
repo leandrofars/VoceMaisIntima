@@ -3,11 +3,11 @@
     display: flex;
     list-style: none;
     justify-content: center;
+    margin-bottom: -10px;
 }
 .filters{
     color: black;
     text-decoration: none;
-    background-color: #f7caca;
     border-radius: 5px;
     cursor: pointer;
     font-size: 20px;
@@ -17,7 +17,8 @@
 .filters:hover{
     color: black;
     text-decoration: none;
-    background-color: #ffe0df;
+    margin-bottom: 5px;
+    border-bottom: 5px solid #f7caca;
     border-radius: 5px;
 }
 @media(max-width:600px){

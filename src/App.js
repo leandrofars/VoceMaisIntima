@@ -5,23 +5,17 @@ import Footer from './components/footer/footer'
 import Produtos from './components/produtos/produtos';
 import Filterbar from './components/filterbar/filterbar';
 import Carrinho from './components/carrinho/carrinho';
-import MenuMobile from './components/menuMobile/menuMobile'
+import MenuMobile from './components/menu_mobile/menuMobile';
+import Header from './components/header/header';
 import { CartProvider } from './contexts/cartContext';
 import { ToastContainer, Zoom } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import "./App.css"
 
-import logo from "./imgs/logo.png"
-//import slogan from "./imgs/slogan.gif"
-import mobileLogo from "./imgs/logoMobile.png"
-
 function App() {
 
   const [filter,setFilter]= useState("/")
-  function homepage(){
-    setFilter("/")
-  }
 
   return (
    <div>
@@ -36,12 +30,7 @@ function App() {
         pauseOnFocusLoss
         draggable
         pauseOnHover={false}/>
-    <header>
-        <div className="logo">
-            <img src={logo} alt="logo" className="logoImgPC" onClick={homepage}/>
-            <img src={mobileLogo} alt="logo" className="logoImgMobile" onClick={homepage}/>
-        </div>
-    </header>
+    <Header setFilter={setFilter}/>
     <CartProvider>
     <MenuMobile setFilter={setFilter}/>
     <Carrinho />    

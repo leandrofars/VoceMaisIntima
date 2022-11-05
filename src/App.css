@@ -2,27 +2,10 @@ body{
     font-family: Montserrat;
     list-style: none;
 }
-header{
-    background-color: #ffe0df; 
-    display: flex;
-    justify-content: center;
+a{
+    text-decoration: none; 
 }
-.logo{
-    width: 270px;
-    height: 200px;
-    margin-bottom: 15px;
-}
-.logo img{
-    height: 100%;
-    width: 100%;
-    cursor: pointer;
-}
-nav{
-    display: flex;
-    justify-content: center;
-    background-color: #fac8c7;
-    padding: 5px;
-}
+
 .menu{
     display: flex;
     justify-content: center;
@@ -85,12 +68,12 @@ main{
     width: 150px;
     grid-template-rows: 20px 20px 20px;
 }
-.logoImgMobile{
-    display: none;
-}
 /*responsividade para celular*/
 
 @media(max-width:600px){
+    nav{
+        height: 20px;
+    }
     body{
         padding: 0px 0px;
     }
@@ -121,21 +104,6 @@ main{
     }
     .formasDeContato{
         margin-left: 30px;
-    }
-    .logo{
-        width: 200px;
-        height: 40px;
-        margin-bottom: 15px;
-    }  
-    .logoImgPC{
-        display: none;
-    }
-    .logoImgMobile{
-        margin-top: 10px;
-        display: block;
-    }  
-    header{
-        position: sticky;
-        top:0px;
-    }
+    } 
+
 }

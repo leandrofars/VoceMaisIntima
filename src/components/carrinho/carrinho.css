@@ -125,6 +125,19 @@ input[type=number]:focus{
         top: 5px;
         right: 5px;
     }
+    .title{
+        position: fixed;
+        width:75%;
+        top: 0px;
+        right:0px;
+        height:100vh;
+        visibility: visible;
+        overflow-y:auto;
+        background-color:white ;
+    }
+    .trash{
+       padding-left: 0px ; 
+    }
 }
 
 

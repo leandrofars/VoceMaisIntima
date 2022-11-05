@@ -9,9 +9,11 @@
     margin: 20px 25px 0px 25px;
     width: 260px;
     height: 390px;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2), 0 0px 5px 0 rgba(0, 0, 0, 0.2);
+
 }
 .produtos:hover{
-    background-color: #ffe0df;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2), 0 0px 10px 0 rgba(0, 0, 0, 0.2);
 }
 .produtos img{
     width: 100%;
@@ -60,7 +62,7 @@
     background-color: white;
 }
 .clickToMaximize{
-    cursor: pointer;
+    cursor: default;
 }
 .product-max-container{
     position:fixed;
@@ -112,6 +114,7 @@
         width: 170px;
         height: 250px;
         background-color:white;
+        box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2), 0 0px 5px 0 rgba(0, 0, 0, 0.2);
     }
     .sizes{
         display: none;

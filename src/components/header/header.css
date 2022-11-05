@@ -1,0 +1,36 @@
+header{
+    background-color: #ffe0df; 
+    display: flex;
+    justify-content: center;
+}
+.logo{
+    width: 270px;
+    height: 200px;
+    margin-bottom: 15px;
+}
+.logo img{
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+}
+.logoImgMobile{
+    display: none;
+}
+@media(max-width:600px){
+    .logoImgPC{
+    display: none;
+    }
+    .logoImgMobile{
+        margin-top: 10px;
+        display: block;
+    } 
+    header{
+        position: sticky;
+        top:0px;
+    }
+    .logo{
+        width: 200px;
+        height: 40px;
+        margin-bottom: 15px;
+    } 
+}
